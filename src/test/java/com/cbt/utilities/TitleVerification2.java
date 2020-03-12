@@ -15,8 +15,9 @@ public class TitleVerification2 {
         WebDriver driver = BrowserFactory.GetDriver("firefox");
         for (String each: urls){
             driver.get(each);
-            String siteURL = driver.getCurrentUrl().replace("https://","").replace(".com","");
-            String siteTitle = driver.getTitle().trim();
+            String siteURL = driver.getCurrentUrl().replace("https://www.","").replace(".com/","");
+            String siteTitle = driver.getTitle().replace(" ","").toLowerCase();
+            System.out.println("SiteURL: " + siteURL + "... SiteTitle: " + siteTitle);
             System.out.println(siteTitle.contains(siteURL));
         }
 
